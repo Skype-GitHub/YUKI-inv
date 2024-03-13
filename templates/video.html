@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+    <link rel="stylesheet" href="css/video-js.css">
+    <script type="text/javascript" src="css/video.min.js"></script>
 </head>
 
 <div id="adspace">
@@ -48,14 +49,12 @@ window.onload = () => {
                 </div>
             </div>
             <div id="player-container" class="h-box">
-                <video style="outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
-                    %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
-                    loadedmetadata="settime()" loop="">
-                    {% for videourl in videourls%}
+                <video-js data-setup='{}' controls loop="loop">
+                    
                     <source src="{{videourl}}">
-                    {% endfor %}
-                </video>
-                </video>
+                   
+                </video-js>
+                
             </div>
             <div class="h-box">
                 <h1>{{ videotitle }}</h1>
